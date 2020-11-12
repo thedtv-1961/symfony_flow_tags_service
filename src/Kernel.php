@@ -2,10 +2,15 @@
 
 namespace App;
 
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use App\GameFlow\GameFlowPass;
+use App\GameFlow\GameProcessor\IEndFlowProcessor;
+use App\GameFlow\GameProcessor\IInitFlowProcessor;
+use App\GameFlow\GameProcessor\IUpdateFlowProcessor;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 class Kernel extends BaseKernel
 {
@@ -34,5 +39,17 @@ class Kernel extends BaseKernel
         } elseif (is_file($path = \dirname(__DIR__).'/config/routes.php')) {
             (require $path)($routes->withPath($path), $this);
         }
+    }
+
+    protected function build(ContainerBuilder $container)
+    {
+        // Game Flow:
+        $container->registerForAutoconfiguration(IInitFlowProcessor::class)
+            ->addTag(GameFlowPass::GAMEFLOW_INIT_TAG);
+        $container->registerForAutoconfiguration(IUpdateFlowProcessor::class)
+            ->addTag(GameFlowPass::GAMEFLOW_UPDATE_TAG);
+        $container->registerForAutoconfiguration(IEndFlowProcessor::class)
+            ->addTag(GameFlowPass::GAMEFLOW_END_TAG);
+        $container->addCompilerPass(new GameFlowPass());
     }
 }

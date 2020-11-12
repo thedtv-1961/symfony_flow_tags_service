@@ -1,0 +1,29 @@
+services:
+
+  # Game flow:
+
+  gameflow.game.flow:
+    class: App\GameFlow\GameFlow
+    calls:
+      - [ 'setInitFlowProcessor', ['@gameflow.game.processor.init'] ]
+      - [ 'setUpdateFlowProcessor', ['@gameflow.game.processor.update'] ]
+      - [ 'setEndFlowProcessor', ['@gameflow.game.processor.end'] ]
+
+  gameflow.game.processor.init:
+    class: Doctrine\Common\Collections\ArrayCollection
+    arguments:
+      - #
+        - '@GameFlow\GameProcessor\Processor\ConfigCharacterProcessor'
+
+  gameflow.game.processor.update:
+    class: Doctrine\Common\Collections\ArrayCollection
+    arguments:
+      - #
+        - '@GameFlow\GameProcessor\Processor\UpdateSceneProcessor'
+        - '@GameFlow\GameProcessor\Processor\UpdateEventHandleProcessor'
+
+  gameflow.game.processor.end:
+    class: Doctrine\Common\Collections\ArrayCollection
+    arguments:
+      - #
+        - '@GameFlow\GameProcessor\Processor\EndFlowProcessor'

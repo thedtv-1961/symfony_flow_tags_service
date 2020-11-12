@@ -21,15 +21,22 @@
   <component name="ChangeListManager">
     <list default="true" id="49fc129c-c0f1-4df0-b2fc-b46ea1e8376c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFlow/GameFlow.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFlow/GameFlow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFlow/GameFlowPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFlow/GameFlowPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/ConfigCharacterProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/ConfigCharacterProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/EndFlowProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/EndFlowProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/UpdateEventHandleProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/UpdateEventHandleProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/UpdateSceneProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFlow/GameProcessor/Processor/UpdateSceneProcessor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -148,10 +155,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/GameFlow" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -168,7 +177,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605158160119</updated>
-      <workItem from="1605158161949" duration="3108000" />
+      <workItem from="1605158161949" duration="6886000" />
+      <workItem from="1605167811102" duration="962000" />
+      <workItem from="1605171356130" duration="5824000" />
     </task>
     <servers />
   </component>
@@ -185,23 +196,40 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2680" y="210" width="419" height="679" key="#com.intellij.ide.util.MemberChooser" timestamp="1605163609410">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2680" y="210" width="419" height="679" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605163609410" />
-    <state x="2613" y="291" width="524" height="495" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605162923035">
+    <state x="2664" y="301" width="412" height="486" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605165951356">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2613" y="291" width="524" height="495" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605162923035" />
+    <state x="2664" y="301" width="412" height="486" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605165951356" />
+    <state x="2613" y="291" width="524" height="495" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605165063921">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2613" y="291" width="524" height="495" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605165063921" />
     <state x="2020" y="127" width="1720" height="812" key="DiffContextDialog" timestamp="1605163242147">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2020" y="127" width="1720" height="812" key="DiffContextDialog/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605163242147" />
-    <state x="2530" y="245" width="843" height="641" key="NewPhpClassDialog" timestamp="1605162953691">
+    <state x="2530" y="245" width="843" height="641" key="NewPhpClassDialog" timestamp="1605164956404">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2530" y="245" width="843" height="641" key="NewPhpClassDialog/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605162953691" />
+    <state x="2530" y="245" width="843" height="641" key="NewPhpClassDialog/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605164956404" />
+    <state x="2376" y="168" width="1007" height="741" key="SettingsEditor" timestamp="1605167801523">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2376" y="168" width="1007" height="741" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605167801523" />
+    <state x="2584" y="250" width="592" height="566" key="find.popup" timestamp="1605173879157">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2584" y="250" width="592" height="566" key="find.popup/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605173879157" />
+    <state x="2543" y="249" width="672" height="678" key="search.everywhere.popup" timestamp="1605175741091">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2543" y="249" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1012@1920.0.1920.1080" timestamp="1605175741091" />
   </component>
 </project>

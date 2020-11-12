@@ -2,27 +2,27 @@
 
 namespace App\GameFlow;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use App\GameFlow\GameProcessor\IEndFlowProcessor;
 use App\GameFlow\GameProcessor\IInitFlowProcessor;
 use App\GameFlow\GameProcessor\IUpdateFlowProcessor;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class GameFlow
 {
     /**
-     * @var ArrayCollection
+     * @var ArrayCollection|IInitFlowProcessor[]
      */
-    private $initFlowProcessors;
+    protected $initFlowProcessors;
 
     /**
-     * @var ArrayCollection
+     * @var ArrayCollection|IUpdateFlowProcessor[]
      */
-    private $updateFlowProcessor;
+    protected $updateFlowProcessor;
 
     /**
-     * @var ArrayCollection
+     * @var ArrayCollection|IEndFlowProcessor[]
      */
-    private $endFlowProcessor;
+    protected $endFlowProcessor;
 
     /**
      * GameFlow constructor.
@@ -34,10 +34,28 @@ class GameFlow
         $this->endFlowProcessor = new ArrayCollection();
     }
 
+    public function run()
+    {
+        // Step: Init
+        foreach ($this->initFlowProcessors as $initFlowProcessor) {
+            $initFlowProcessor->process();
+        }
+
+        // Step: Update
+        foreach ($this->updateFlowProcessor as $updateFlowProcessor) {
+            $updateFlowProcessor->process();
+        }
+
+        // Step: End
+        foreach ($this->endFlowProcessor as $endFlowProcessor) {
+            $endFlowProcessor->process();
+        }
+    }
+
     /**
      * @param  ArrayCollection  $initFlowProcessors
      */
-    public function setInitFlowProcessors(ArrayCollection $initFlowProcessors): void
+    public function setInitFlowProcessor(ArrayCollection $initFlowProcessors): void
     {
         $this->initFlowProcessors = $initFlowProcessors;
     }
@@ -65,7 +83,7 @@ class GameFlow
      */
     public function addInitFlowProcessor(IInitFlowProcessor $initFlowProcessor)
     {
-        $this->initFlowProcessors->add($initFlowProcessor);
+        $this->initFlowProcessors[] = $initFlowProcessor;
     }
 
     /**
@@ -75,7 +93,7 @@ class GameFlow
      */
     public function addUpdateFlowProcessor(IUpdateFlowProcessor $updateFlowProcessor)
     {
-        $this->initFlowProcessors->add($updateFlowProcessor);
+        $this->updateFlowProcessor[] = $updateFlowProcessor;
     }
 
     /**
@@ -85,6 +103,6 @@ class GameFlow
      */
     public function addEndFlowProcessor(IEndFlowProcessor $endFlowProcessor)
     {
-        $this->initFlowProcessors->add($endFlowProcessor);
+        $this->endFlowProcessor[] = $endFlowProcessor;
     }
 }
