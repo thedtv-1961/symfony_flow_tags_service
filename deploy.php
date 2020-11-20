@@ -24,14 +24,35 @@ set('branch', 'main');
 
 // Hosts
 
-host('172.0.0.2')
+host('172.17.0.2')
 	->user('deploy')
     ->set('deploy_path', '/var/www/html/{{application}}');    
-    
+
 // Tasks
 
+task('composer_install', funciton () {
+    run('cd {{release_path}} && composer install');
+});
+
 task('deploy', function () {
-    
+    $tasks = [
+        'deploy:info',
+        'deploy:prepare',
+        // 'deploy:lock',
+        'deploy:release',
+        'deploy:update_code',
+        'deploy:shared',
+        'composer_install',
+        
+        'deploy:writable',
+        'deploy:symlink',
+        // 'deploy:unlock',
+        'cleanup',
+    ];
+
+    foreach($tasks as $task) {
+        invoke($task);
+    }
 });
 
 
