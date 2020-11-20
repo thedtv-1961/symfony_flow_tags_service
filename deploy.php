@@ -30,7 +30,7 @@ host('172.17.0.2')
 
 // Tasks
 
-task('composer_install', funciton () {
+task('composer_install', function () {
     run('cd {{release_path}} && composer install');
 });
 
@@ -38,15 +38,14 @@ task('deploy', function () {
     $tasks = [
         'deploy:info',
         'deploy:prepare',
-        // 'deploy:lock',
+        'deploy:lock',
         'deploy:release',
         'deploy:update_code',
         'deploy:shared',
         'composer_install',
-        
-        'deploy:writable',
+        // 'deploy:writable',
         'deploy:symlink',
-        // 'deploy:unlock',
+        'deploy:unlock',
         'cleanup',
     ];
 
