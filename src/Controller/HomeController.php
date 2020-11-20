@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
-class HomeController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
+class HomeController extends AbstractController
 {
     public function index()
     {
-        dump(1);
-
-        die();
+    	return $this->render('index.twig', [
+            'title' => 'dtvthe',
+        ]);
     }
 }
